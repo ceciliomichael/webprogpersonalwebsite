@@ -19,6 +19,26 @@ body {
     padding: 20px;
 }
 
+.container h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2.5em; /* Make the h1 a little bit bigger */
+}
+
+.container h1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
 .section {
     width: 100%;
     max-width: 800px;
