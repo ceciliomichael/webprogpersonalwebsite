@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Bare - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page content-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Personal Profile</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+</head>
+<body>
+    <!-- Responsive navbar from Start Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <div class="text-center mt-5">
-                <h1>A Bootstrap 5 Starter Template</h1>
-                <p class="lead">A complete project boilerplate built with Bootstrap</p>
-                <p>Bootstrap v5.2.3</p>
+            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+    </nav>
+
+    <!-- Personal Profile Content -->
+    <div class="grid-container">
+        <div class="header">
+            <h1>Personal Profile Webpage</h1>
+        </div>
+        <div class="menu">
+            <!-- Menu content can go here -->
+        </div>
+        <div class="main">
+            <h2>About Me</h2>
+            <p>Welcome to my personal profile webpage! Here you'll find information about my education, IT experience, hobbies, and goals in life. Feel free to explore and learn more about me.</p>
+
+            <h2>Education / Achievements</h2>
+            <p>I have pursued a course in Information Technology, where I gained extensive knowledge and skills in various aspects of IT. My achievements include completing several projects and earning certifications in programming and web development.</p>
+
+            <h2>IT Experience</h2>
+            <p>It's been fun coding and exploring various technologies. I've worked on multiple projects, learning and growing with each one. My experience includes developing web applications, working with databases, and experimenting with new programming languages and frameworks.</p>
+
+            <h2>Hobbies & Interests</h2>
+            <p>Experimenting and learning about AI is one of my passions. I enjoy exploring the latest advancements in artificial intelligence and applying them to real-world problems. In my free time, I also like to read tech blogs and participate in coding challenges.</p>
+
+            <h2>Goals In Life / Dream</h2>
+            <p>My goal in life is to create something unique that can be used for years to come. I aspire to develop innovative solutions that make a positive impact on society and contribute to the advancement of technology.</p>
+        </div>
+        <div class="right">
+            <h2>Picture Gallery</h2>
+            <p><img src="../images/image1.png" alt="Image 1"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
 </html>
