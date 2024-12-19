@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #f8f9fa;
+    color: #343a40;
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,14 +13,15 @@ body {
 
 .topbar {
     width: 100%;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     position: absolute;
     top: 0;
     left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -37,24 +38,26 @@ h1 {
     display: none;
     margin: 20px 0;
     padding: 30px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 15px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    height: 450px; /* Increased height for bigger tiles */
-    overflow: auto; /* Ensure content is scrollable if it overflows */
-    font-size: 18px; /* Increased font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 450px;
+    overflow: auto;
+    font-size: 18px;
 }
 
 .tile.active {
     display: block;
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .tile h2 {
     margin-top: 0;
-    font-size: 24px; /* Increased font size */
+    font-size: 28px;
+    color: #007bff;
 }
 
 .tile img {
@@ -62,12 +65,14 @@ h1 {
     height: auto;
     display: block;
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 .button-container {
     display: flex;
     justify-content: space-between;
     width: 200px;
+    margin-top: 20px;
 }
 
 button {
@@ -75,13 +80,14 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
