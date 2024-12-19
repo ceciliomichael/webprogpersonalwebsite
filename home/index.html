@@ -2,28 +2,44 @@
 <html>
 <head>
     <title>Personal Website</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
-<h1>Personal Profile Webpage</h1>
+<div class="topbar">Personal Profile Webpage</div>
 
-<h2>About Me</h2>
-<p>Welcome to my personal profile webpage! Here you'll find information about my education, IT experience, hobbies, and goals in life. Feel free to explore and learn more about me.</p>
+<div class="tile-container">
+    <div class="tile active" id="about-me">
+        <h2>About Me</h2>
+        <p>Welcome to my personal profile webpage! Here you'll find information about my education, IT experience, hobbies, and goals in life. Feel free to explore and learn more about me.</p>
+    </div>
+    <div class="tile" id="education">
+        <h2>Education / Achievements</h2>
+        <p>I have pursued a course in Information Technology, where I gained extensive knowledge and skills in various aspects of IT. My achievements include completing several projects and earning certifications in programming and web development.</p>
+    </div>
+    <div class="tile" id="it-experience">
+        <h2>IT Experience</h2>
+        <p>It's been fun coding and exploring various technologies. I've worked on multiple projects, learning and growing with each one. My experience includes developing web applications, working with databases, and experimenting with new programming languages and frameworks.</p>
+    </div>
+    <div class="tile" id="hobbies">
+        <h2>Hobbies & Interests</h2>
+        <p>Experimenting and learning about AI is one of my passions. I enjoy exploring the latest advancements in artificial intelligence and applying them to real-world problems. In my free time, I also like to read tech blogs and participate in coding challenges.</p>
+    </div>
+    <div class="tile" id="goals">
+        <h2>Goals In Life / Dream</h2>
+        <p>My goal in life is to create something unique that can be used for years to come. I aspire to develop innovative solutions that make a positive impact on society and contribute to the advancement of technology.</p>
+    </div>
+    <div class="tile" id="gallery">
+        <h2>Picture Gallery</h2>
+        <p><img src="../images/image1.png" alt="Image 1"></p>
+    </div>
+</div>
 
-<h2>Education / Achievements</h2>
-<p>I have pursued a course in Information Technology, where I gained extensive knowledge and skills in various aspects of IT. My achievements include completing several projects and earning certifications in programming and web development.</p>
+<div class="button-container">
+    <button id="prev-btn">Previous</button>
+    <button id="next-btn">Next</button>
+</div>
 
-<h2>IT Experience</h2>
-<p>It's been fun coding and exploring various technologies. I've worked on multiple projects, learning and growing with each one. My experience includes developing web applications, working with databases, and experimenting with new programming languages and frameworks.</p>
-
-<h2>Hobbies & Interests</h2>
-<p>Experimenting and learning about AI is one of my passions. I enjoy exploring the latest advancements in artificial intelligence and applying them to real-world problems. In my free time, I also like to read tech blogs and participate in coding challenges.</p>
-
-<h2>Goals In Life / Dream</h2>
-<p>My goal in life is to create something unique that can be used for years to come. I aspire to develop innovative solutions that make a positive impact on society and contribute to the advancement of technology.</p>
-
-<h2>Picture Gallery</h2>
-<p><img src="https://media.discordapp.net/attachments/1306208439864659968/1306334179633533073/Screenshot_2024-11-14_023436.png?ex=67476d82&is=67461c02&hm=653026911249e20f190bc0ee8a5a778489174413b87b9d7fd1c007a09540ed47&=&format=webp&quality=lossless&width=687&height=397" alt="Image 1"></p>
-    
+<script src="scripts.js"></script>
 </body>
 </html>
