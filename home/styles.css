@@ -48,7 +48,7 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 450px;
-    overflow: auto;
+    overflow: hidden; /* Changed from auto to hidden */
     font-size: 18px;
     flex: 1 1 calc(33.333% - 40px);
     box-sizing: border-box;
