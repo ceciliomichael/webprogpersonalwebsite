@@ -1,7 +1,7 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
     margin: 0;
     padding: 0;
     display: flex;
@@ -15,9 +15,10 @@ body {
     width: 100%;
     background-color: #007bff;
     color: #fff;
-    padding: 15px 0;
+    padding: 20px 0;
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 700;
     position: absolute;
     top: 0;
     left: 0;
@@ -29,15 +30,18 @@ h1 {
 }
 
 .tile-container {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .tile {
     display: none;
-    margin: 20px 0;
-    padding: 30px;
+    margin: 20px;
+    padding: 40px;
     border: 1px solid #e9ecef;
     border-radius: 15px;
     background-color: #fff;
@@ -46,6 +50,8 @@ h1 {
     height: 450px;
     overflow: auto;
     font-size: 18px;
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
 }
 
 .tile.active {
@@ -90,4 +96,16 @@ button {
 button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .tile {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .tile {
+        flex: 1 1 100%;
+    }
 }
