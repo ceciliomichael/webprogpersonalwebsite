@@ -44,5 +44,59 @@
 <div class="timer">Next slide in <span id="timer">10</span> seconds</div>
 
 <script src="scripts.js"></script>
+    <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/gh/ceciliomichael/FlowiseChatEmbed3/dist/web.js"
+    try {
+        Chatbot.initFull({
+            chatflowid: "fcddeaa2-ff9f-421a-95f7-822215a0d058",
+            apiHost: "https://flowise.ultrawavelet.me",
+            theme: {
+                "button": {
+                    backgroundColor: "#0d47a1",
+                    },
+                chatWindow: {
+                    showTitle: true,
+                    title: 'Zora',
+                    titleAvatarSrc: 'images/zora.jpg',
+                    showAgentMessages: false,
+                    welcomeMessage: '',
+                    errorMessage: 'Hello! I am currently unavailable, Please come back again later..😄',
+                    height: 600,
+                    width: 400,
+                    fontSize: 16,
+                    starterPrompts: ['Hi Zora!','Who are you?', 'What is your purpose?'],
+                    starterPromptFontSize: 20,
+                    clearChatOnReload: false,
+                    botMessage: {
+                        backgroundColor: "#f7f8ff",
+                        textColor: "#303235",
+                        showAvatar: false,
+                        avatarSrc: "images/zora.jpg",
+                    },
+                    userMessage: {
+                        backgroundColor: "#0d47a1",
+                        textColor: "#ffffff",
+                    },
+                    textInput: {
+                        placeholder: 'Tell me something',
+                        backgroundColor: '#ffffff',
+                        textColor: '#303235',
+                        sendButtonColor: '#0d47a1',
+                        autoFocus: true,
+                        sendMessageSound: true,
+                        sendSoundLocation: "sounds/send_message.mp3",
+                        receiveMessageSound: true,
+                        receiveSoundLocation: "sounds/receive_message.mp3",
+                    },
+                    feedback: {
+                        color: '#303235',
+                    },
+                }
+            }
+        })
+    } catch (error) {
+        console.error("Error initializing chatbot:", error);
+    }
+</script>
 </body>
 </html>
