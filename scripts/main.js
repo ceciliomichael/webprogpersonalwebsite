@@ -86,7 +86,7 @@ function installApp(appData) {
             id: 'deepthink',
             title: 'Deepthink AI',
             icon: 'images/icons/deepthink.png',
-            url: 'apps/deepthink/index.html'
+            url: 'https://ceciliomichael.github.io/deepthink2/'
         };
     }
     
@@ -176,6 +176,12 @@ function createWindow(app) {
     win.style.top = '50px';
     win.style.left = '50px';
     win.style.zIndex = topZIndex++;
+
+    // Special handling for external URLs
+    const iframeUrl = app.id === 'deepthink' ? 
+        'https://ceciliomichael.github.io/deepthink2/' : 
+        app.url;
+
     win.innerHTML = `
         <div class="window-header">
             <div class="window-title">${app.title}</div>
@@ -186,7 +192,7 @@ function createWindow(app) {
             </div>
         </div>
         <div class="window-content">
-            <iframe src="${app.url}"></iframe>
+            <iframe src="${iframeUrl}"></iframe>
         </div>
         <div class="window-resize-handle"></div>
     `;
