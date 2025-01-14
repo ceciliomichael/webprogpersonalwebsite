@@ -494,8 +494,27 @@ function clearChat() {
     aiConversation.innerHTML = '';
     chatHistory = [];
     localStorage.removeItem(CHAT_HISTORY_KEY);
-    // Add initial message after clearing and save it to history
-    const welcomeMessage = "Hello! I'm Zora your WebOS Assistant. How can I help you today?";
+    
+    // Updated welcome message with all capabilities
+    const installedAIApps = Object.keys(installedApps)
+        .filter(appId => appId.toLowerCase().includes('ai'))
+        .map(appId => JSON.parse(localStorage.getItem(`app_${appId}`)))
+        .filter(app => app)
+        .map(app => `**${app.title}**`)
+        .join(', ');
+
+    const welcomeMessage = `Hello! I'm Zora, your WebOS Assistant. I can help you:
+• Open applications
+• Search for content
+• Show available apps
+• Navigate the system
+
+${formatAppList(groupAppsByCategory())}
+
+${installedAIApps ? `\n\nI notice you have ${installedAIApps} installed!` : ''}
+
+How can I assist you today?`;
+
     addMessage(welcomeMessage, false, true);
 }
 
