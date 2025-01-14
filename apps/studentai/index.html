@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="../../images/ai-icon.svg" alt="StudentAI" class="ai-avatar">
+            <div class="header-title">
+                <h1>StudentAI Assistant</h1>
+            </div>
+            <div class="header-actions">
+                <button class="clear-chat" id="clearChat">Clear Chat</button>
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+                <div class="message-content">
+                    Hello! I'm your StudentAI Assistant. I can help you with study planning and coding questions. How can I assist you today?
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <textarea id="userInput" placeholder="Type your message here..." rows="1"></textarea>
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

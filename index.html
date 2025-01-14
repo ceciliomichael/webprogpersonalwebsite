@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Cecilio - Portfolio</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="desktop">
+        <!-- Desktop icons will be dynamically added here -->
+    </div>
+
+    <div class="search-overlay">
+        <input type="text" class="search-input" placeholder="Search apps...">
+        <div class="search-results"></div>
+    </div>
+
+    <div class="ai-overlay">
+        <div class="ai-header">
+            <div class="ai-header-left">
+                <img src="images/round.png" alt="AI Assistant" class="ai-avatar">
+                <div class="ai-title">WebOS Assistant</div>
+            </div>
+            <button class="clear-chat" id="clearChat" title="Clear Chat">
+                <img src="images/clear-chat.svg" alt="Clear Chat">
+            </button>
+        </div>
+        <div class="ai-conversation" id="aiConversation">
+            <!-- Remove static welcome message - it will be added dynamically -->
+        </div>
+        <div class="ai-input-container">
+            <input type="text" class="ai-input" id="aiInput" placeholder="Type your message...">
+            <button class="ai-send-btn" id="aiSendBtn">Send</button>
+        </div>
+    </div>
+
+    <div id="taskbar">
+        <div class="taskbar-content">
+            <button class="taskbar-icon" id="start-btn">
+                <img src="images/round.png" alt="Start">
+            </button>
+            <button class="taskbar-icon" id="search-btn">
+                <img src="images/search.svg" alt="Search">
+            </button>
+            <button class="taskbar-icon" id="installer-btn">
+                <img src="images/installer.svg" alt="App Installer">
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts/main.js" type="module"></script>
+</body>
+</html>

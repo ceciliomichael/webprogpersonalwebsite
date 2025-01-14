@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/apps.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <h1 class="app-title">App Installer</h1>
+        </div>
+        <div class="content-card">
+            <div class="app-store-item">
+                <img src="../images/icons/deepthink.png" alt="Deepthink AI" class="app-logo">
+                <div class="app-info">
+                    <h2>Deepthink AI Chat</h2>
+                    <p>A sophisticated AI chatbot leveraging advanced LLM capabilities for natural conversations and problem-solving</p>
+                    <div class="button-group">
+                        <button class="install-button" data-app-id="deepthink" data-app-url="https://ceciliomichael.github.io/deepthink2/">
+                            <span class="install-text">Install</span>
+                        </button>
+                        <button class="uninstall-button" data-app-id="deepthink" style="display: none;">
+                            <span>Uninstall</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-store-item">
+                <img src="../images/ai-icon.svg" alt="StudentAI Chat" class="app-logo">
+                <div class="app-info">
+                    <h2>StudentAI Assistant</h2>
+                    <p>A simple chatbot to help with study planning and coding questions</p>
+                    <div class="button-group">
+                        <button class="install-button" data-app-id="studentai" data-app-url="apps/studentai/index.html">
+                            <span class="install-text">Install</span>
+                        </button>
+                        <button class="uninstall-button" data-app-id="studentai" style="display: none;">
+                            <span>Uninstall</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateButtons(appId, isInstalled) {
+            const installBtn = document.querySelector(`.install-button[data-app-id="${appId}"]`);
+            const uninstallBtn = document.querySelector(`.uninstall-button[data-app-id="${appId}"]`);
+            
+            if (isInstalled) {
+                installBtn.classList.add('installed');
+                installBtn.disabled = true;
+                installBtn.querySelector('.install-text').textContent = 'Installed';
+                uninstallBtn.style.display = 'block';
+            } else {
+                installBtn.classList.remove('installed');
+                installBtn.disabled = false;
+                installBtn.querySelector('.install-text').textContent = 'Install';
+                uninstallBtn.style.display = 'none';
+            }
+        }
+
+        // Check installation status on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const installedApps = JSON.parse(localStorage.getItem('installedApps') || '{}');
+            Object.keys(installedApps).forEach(appId => {
+                updateButtons(appId, true);
+            });
+        });
+
+        document.querySelectorAll('.install-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                const appId = button.dataset.appId;
+                const appUrl = button.dataset.appUrl;
+                
+                // Define app details based on appId
+                let appDetails = {
+                    deepthink: {
+                        title: 'Deepthink AI',
+                        icon: '../images/icons/deepthink.png'
+                    },
+                    studentai: {
+                        title: 'StudentAI Assistant',
+                        icon: '../images/ai-icon.svg'
+                    }
+                };
+
+                window.parent.postMessage({
+                    type: 'INSTALL_APP',
+                    app: {
+                        id: appId,
+                        title: appDetails[appId].title,
+                        icon: appDetails[appId].icon,
+                        url: appUrl
+                    }
+                }, '*');
+
+                updateButtons(appId, true);
+            });
+        });
+
+        document.querySelectorAll('.uninstall-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const appId = button.dataset.appId;
+                
+                window.parent.postMessage({
+                    type: 'UNINSTALL_APP',
+                    appId: appId
+                }, '*');
+
+                updateButtons(appId, false);
+            });
+        });
+    </script>
+</body>
+</html>

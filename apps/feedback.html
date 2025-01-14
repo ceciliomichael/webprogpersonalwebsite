@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>System Feedback</h1>
+        <form id="feedbackForm">
+            <div class="sections-container">
+                <div class="section">
+                    <h2>Interface Experience</h2>
+                    <div class="question">
+                        <label>How would you rate the WebOS interface?</label>
+                        <div class="radio-group">
+                            <label class="input-height">
+                                <input type="radio" name="interface" value="Exceptional" required>
+                                <span>Exceptional - Very intuitive and smooth</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="radio" name="interface" value="Good">
+                                <span>Good - Easy to use</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="radio" name="interface" value="Average">
+                                <span>Average - Works as expected</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="radio" name="interface" value="Needs Improvement">
+                                <span>Needs Improvement</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="radio" name="interface" value="Poor">
+                                <span>Poor - Difficult to use</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Features & AI Assistant</h2>
+                    <div class="question">
+                        <label>Which features enhance your experience?</label>
+                        <div class="checkbox-group">
+                            <label class="input-height">
+                                <input type="checkbox" name="features" value="Window Management">
+                                <span>Window Management System</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="checkbox" name="features" value="Search">
+                                <span>Quick Search Function</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="checkbox" name="features" value="AI Assistant">
+                                <span>Zora AI Assistant</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="checkbox" name="features" value="App Installation">
+                                <span>App Installation System</span>
+                            </label>
+                            <label class="input-height">
+                                <input type="checkbox" name="features" value="UI Design">
+                                <span>Modern UI Design</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Performance & Reliability</h2>
+                    <div class="question">
+                        <label>How smooth is the system performance?</label>
+                        <select name="performance" required class="input-height">
+                            <option value="">Select your experience...</option>
+                            <option value="Excellent">Excellent - No lag or issues</option>
+                            <option value="Good">Good - Minor occasional delays</option>
+                            <option value="Average">Average - Some performance issues</option>
+                            <option value="Fair">Fair - Notable performance problems</option>
+                            <option value="Poor">Poor - Significant issues</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Suggestions</h2>
+                    <div class="question">
+                        <label>What features or improvements would you like to see?</label>
+                        <textarea name="suggestions" rows="4" placeholder="Share your ideas for making the system better..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+    </div>
+    <script src="feedback.js"></script>
+</body>
+</html>
