@@ -73,7 +73,7 @@ function installApp(appData) {
         url: appData.url
     };
 
-    // Special handling for StudentAI app
+    // Special handling for AI apps
     if (appData.id === 'studentai') {
         newApp = {
             id: 'studentai',
@@ -81,11 +81,18 @@ function installApp(appData) {
             icon: 'images/ai-icon.svg',
             url: 'apps/studentai/index.html'
         };
-        
-        // Make sure it's immediately available for AI commands
-        if (!apps.find(app => app.id === 'studentai')) {
-            apps.push(newApp);
-        }
+    } else if (appData.id === 'deepthink') {
+        newApp = {
+            id: 'deepthink',
+            title: 'Deepthink AI',
+            icon: 'images/icons/deepthink.png',
+            url: 'apps/deepthink/index.html'
+        };
+    }
+    
+    // Make sure it's immediately available for AI commands
+    if (!apps.find(app => app.id === newApp.id)) {
+        apps.push(newApp);
     }
 
     // Save the full app data
@@ -107,7 +114,9 @@ function uninstallApp(appId) {
     // Remove desktop icon
     const desktopIcons = document.querySelectorAll('.desktop-icon');
     desktopIcons.forEach(icon => {
-        if (icon.querySelector('span').textContent === 'Deepthink AI') {
+        const iconTitle = icon.querySelector('span').textContent;
+        if ((appId === 'studentai' && iconTitle === 'StudentAI Assistant') ||
+            (appId === 'deepthink' && iconTitle === 'Deepthink AI')) {
             icon.remove();
         }
     });
