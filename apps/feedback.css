@@ -189,7 +189,7 @@ select:focus {
 }
 
 textarea {
-    width: 100%;
+    width: 95%;
     padding: 16px;
     border: 2px solid rgba(74, 144, 226, 0.2);
     border-radius: 16px;
@@ -347,4 +347,79 @@ select.input-height {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+/* Add these responsive styles at the end of the file */
+@media screen and (max-width: 1024px) {
+    .app-container {
+        max-width: 100%;
+        height: 100%;
+        padding: 12px;
+        margin: 0;
+        border-radius: 0;
+        overflow-y: auto;
+    }
+
+    .sections-container {
+        padding-right: 4px;
+        margin-right: -4px;
+    }
+
+    .section {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .radio-group label, .checkbox-group label {
+        padding: 8px 12px;
+        height: auto;
+        min-height: 44px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 100px;
+    }
+
+    .submit-btn {
+        position: sticky;
+        bottom: 0;
+        margin: 16px 0;
+        padding: 14px 28px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 24px;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+}
+
+/* Add touch-friendly styles for tablet users */
+@media (hover: none) {
+    .radio-group label:hover,
+    .checkbox-group label:hover {
+        transform: none;
+    }
+
+    .radio-group label:active,
+    .checkbox-group label:active {
+        background: rgba(74, 144, 226, 0.1);
+    }
+
+    .submit-btn:hover {
+        transform: none;
+    }
+
+    .submit-btn:active {
+        transform: scale(0.98);
+    }
 }
