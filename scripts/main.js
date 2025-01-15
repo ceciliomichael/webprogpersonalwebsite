@@ -259,22 +259,38 @@ function makeWindowDraggable(win) {
     let isDragging = false;
     let startX, startY;
     
+    // Add touch event listeners
     header.addEventListener('mousedown', initDrag);
+    header.addEventListener('touchstart', handleTouchStart);
     document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
     document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
     
     win.addEventListener('mousedown', () => bringToFront(win));
+    win.addEventListener('touchstart', () => bringToFront(win));
+
+    function handleTouchStart(e) {
+        const touch = e.touches[0];
+        initDrag(touch);
+    }
+
+    function handleTouchMove(e) {
+        e.preventDefault(); // Prevent scrolling while dragging
+        const touch = e.touches[0];
+        drag(touch);
+    }
 
     function initDrag(e) {
         if (win.classList.contains('maximized')) return;
         
         isDragging = true;
-        startX = e.clientX - win.offsetLeft;
-        startY = e.clientY - win.offsetTop;
+        startX = (e.clientX || e.pageX) - win.offsetLeft;
+        startY = (e.clientY || e.pageY) - win.offsetTop;
         
         win.style.transform = 'translate3d(0,0,0)';
         
-        e.preventDefault();
+        if (e.preventDefault) e.preventDefault();
         
         win.classList.add('dragging');
     }
@@ -283,8 +299,15 @@ function makeWindowDraggable(win) {
         if (!isDragging) return;
         
         requestAnimationFrame(() => {
-            const x = e.clientX - startX;
-            const y = e.clientY - startY;
+            const desktop = document.getElementById('desktop');
+            const desktopRect = desktop.getBoundingClientRect();
+            
+            let x = (e.clientX || e.pageX) - startX;
+            let y = (e.clientY || e.pageY) - startY;
+            
+            // Constrain to desktop bounds
+            x = Math.max(0, Math.min(x, desktopRect.width - win.offsetWidth));
+            y = Math.max(0, Math.min(y, desktopRect.height - win.offsetHeight));
             
             win.style.left = `${x}px`;
             win.style.top = `${y}px`;
