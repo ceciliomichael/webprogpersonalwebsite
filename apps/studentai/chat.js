@@ -143,9 +143,7 @@ function setupEventListeners() {
             const chatMessages = document.getElementById('chatMessages');
             chatMessages.innerHTML = `
                 <div class="message ai-message">
-                    <div class="message-content">
-                        Hello! I'm your StudentAI Assistant. I can help you with study planning and coding questions. How can I assist you today?
-                    </div>
+                    <div class="message-content">Hi! I'm your StudentAI Assistant. I can help you with study planning and coding questions. How can I assist you today?</div>
                 </div>
             `;
             conversationHistory = [];

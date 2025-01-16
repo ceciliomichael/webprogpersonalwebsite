@@ -17,6 +17,11 @@ Available applications:
 - Goals: Future objectives
 - Gallery: Photo gallery
 - App Installer: Install new applications
+- Feedback: Provide feedback
+
+Not installed applications:
+- Deepthink AI: thinking AI
+- StudentAI Assistant: Learning assistant
 
 When users want to:
 1. Open an app: Extract the app name and use [OPEN:app_name]

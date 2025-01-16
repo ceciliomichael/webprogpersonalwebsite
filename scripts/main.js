@@ -692,30 +692,43 @@ function handleAICommand(aiResponse) {
 function findBestAppMatch(query) {
     query = query.toLowerCase().trim();
     
-    // First try exact match
+    // First try exact match from both core apps and installed apps
     let app = apps.find(app => app.title.toLowerCase() === query);
     
-    // Then try contains match
+    if (!app) {
+        // Check installed apps for exact match
+        const installedApp = Object.keys(installedApps)
+            .map(appId => JSON.parse(localStorage.getItem(`app_${appId}`)))
+            .find(savedApp => savedApp && savedApp.title.toLowerCase() === query);
+        if (installedApp) {
+            return installedApp;
+        }
+    }
+    
+    // Then try partial matches
     if (!app) {
         app = apps.find(app => {
             const title = app.title.toLowerCase();
             return title.includes(query) || 
                    query.includes(title) || 
-                   title.includes('assistant') && query.includes('ai');  // Special case for AI assistants
+                   title.includes('assistant') && query.includes('ai');
         });
-    }
-
-    // Check installed apps if not found in main apps
-    if (!app) {
-        Object.keys(installedApps).forEach(appId => {
-            const savedApp = JSON.parse(localStorage.getItem(`app_${appId}`));
-            if (savedApp && (
-                savedApp.title.toLowerCase().includes(query) ||
-                query.includes(savedApp.title.toLowerCase())
-            )) {
-                app = savedApp;
+        
+        // If still not found, check installed apps for partial matches
+        if (!app) {
+            const installedApp = Object.keys(installedApps)
+                .map(appId => JSON.parse(localStorage.getItem(`app_${appId}`)))
+                .find(savedApp => {
+                    if (!savedApp) return false;
+                    const title = savedApp.title.toLowerCase();
+                    return title.includes(query) || 
+                           query.includes(title) || 
+                           title.includes('assistant') && query.includes('ai');
+                });
+            if (installedApp) {
+                return installedApp;
             }
-        });
+        }
     }
 
     return app;
@@ -727,7 +740,7 @@ function groupAppsByCategory() {
         'Personal': allApps.filter(app => ['about', 'hobbies', 'goals'].includes(app.id)),
         'Professional': allApps.filter(app => ['education', 'experience'].includes(app.id)),
         'Media': allApps.filter(app => ['gallery'].includes(app.id)),
-        'System': allApps.filter(app => ['installer'].includes(app.id)),
+        'System': allApps.filter(app => ['installer', 'feedback'].includes(app.id)),
         'AI & Tools': allApps.filter(app => app.id.toLowerCase().includes('ai') || app.title.toLowerCase().includes('ai'))
     };
 }
