@@ -86,7 +86,7 @@ function installApp(appData) {
             id: 'deepthink',
             title: 'Deepthink AI',
             icon: 'images/icons/deepthink.png',
-            url: 'https://ceciliomichael.github.io/deepthink2/'
+            url: 'https://deepthink2.vercel.app/'
         };
     }
     
@@ -179,7 +179,7 @@ function createWindow(app) {
 
     // Special handling for external URLs
     const iframeUrl = app.id === 'deepthink' ? 
-        'https://ceciliomichael.github.io/deepthink2/' : 
+        'https://deepthink2.vercel.app/' : 
         app.url;
 
     win.innerHTML = `
